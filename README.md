@@ -46,6 +46,20 @@ Providing a feed containing only edition packages without extension packages wou
 Additional feeds for extension packages and derivatives would be useful for other implementations and are still worth providing.
 
 A complete feed that is the union of these three feeds can also be potentially provided.
+### Naming conventions
+To aid human readability and distinguishing between packages, the following naming conventions should be applied.
+1. Edition packages
+     1. Should contain the word edition
+     2. Should NOT contain the word extension
+2. Extension packages
+     1. Should contain the word extension
+     2. Should NOT contain the word edition
+3. The version of the package should be included in the title
+4. The [RF2 Release Type](https://confluence.ihtsdotools.org/display/DOCRELFMT/3.2+Release+Types) Full/Delta/Snapshot should be included as a bracketed suffix to the title
+
+For example, titles following these conventions are
+- SNOMED CT-International Edition 2022-07-31 (RF2 SNAPSHOT)
+- SNOMED CT-International Spanish Extension 2022-10-31 (RF2 FULL)
 
 ## Authentication
 The standard does not mandate any authentication and this is left to the implementer of the Atom feed provider to implement whatever is needed depending on any terminology product license requirements.
