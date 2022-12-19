@@ -33,6 +33,21 @@ Within a `sct:packageDependency` element
 - **sct:editionDependency** states any necessary edition dependency and version using the SNOMED CT URI standard, e.g. `http://snomed.info/sct/900000000000207008/version/20220731`. Where a package is transitively dependent on multiple editions, only the direct non-transitive dependencies should be stated. Downloading packages would complete when there are no further dependencies.
 - **sct:derivativeDependency** states any necessary derivative dependency, as they are often published outside of SNOMED CT editions. Similarly, this should also follow the SNOMED CT URI standard for module and version
 
+### Naming conventions
+To aid human readability and distinguishing between packages, the following naming conventions should be applied.
+1. Edition packages
+     1. Should contain the word edition
+     2. Should NOT contain the word extension
+2. Extension packages
+     1. Should contain the word extension
+     2. Should NOT contain the word edition
+3. The version of the package should be included in the title
+4. The [RF2 Release Type](https://confluence.ihtsdotools.org/display/DOCRELFMT/3.2+Release+Types) Full/Delta/Snapshot should be included as a bracketed suffix to the title
+
+For example, titles following these conventions are
+- SNOMED CT-International Edition 2022-07-31 (RF2 SNAPSHOT)
+- SNOMED CT-International Spanish Extension 2022-10-31 (RF2 FULL)
+
 ## Authentication
 The standard does not mandate any authentication and this is left to the implementer of the Atom feed provider to implement whatever is needed depending on any terminology product license requirements.
 
