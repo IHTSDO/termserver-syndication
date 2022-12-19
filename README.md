@@ -33,6 +33,25 @@ Within a `sct:packageDependency` element
 - **sct:editionDependency** states any necessary edition dependency and version using the SNOMED CT URI standard, e.g. `http://snomed.info/sct/900000000000207008/version/20220731`. Where a package is transitively dependent on multiple editions, only the direct non-transitive dependencies should be stated. Downloading packages would complete when there are no further dependencies.
 - **sct:derivativeDependency** states any necessary derivative dependency, as they are often published outside of SNOMED CT editions. Similarly, this should also follow the SNOMED CT URI standard for module and version
 
+### Packaging types for extensions and derivatives
+The major distinction between extensions and derivatives is that extensions add/modify core components, where derivatives are limited to reference sets providing non-core "bolt on" content.
+
+#### Extensions
+For editions, most implementers want a ready to use package rather than parts and assembly instructions. Assembling an edition from an extension package and a base edition is not a trivial exercise, requiring content to be combined and a snapshot calculated based on the [Module Dependency Reference Set](https://confluence.ihtsdotools.org/display/DOCRELFMT/5.2.4.2+Module+Dependency+Reference+Set).
+
+For this reason *edition packaging is preferred as the primary distribution method extensions*. Extensions may also be provided in extension packaging, however if only one is made availabe edition packaging is preferred.
+
+The rationale for this recommendation is that 
+- implementers desiring an extension package are in the minority and more capable of disassembiling an edition package if necessary
+- the majority of implementers would prefer a ready to use edition package, and the task of assembling that from an extension and base edition package and calculating a snapshot based on the [Module Dependency Reference Set](https://confluence.ihtsdotools.org/display/DOCRELFMT/5.2.4.2+Module+Dependency+Reference+Set) is burdensome.
+
+#### Derivatives
+Derivatives are designed to bolt on to an edition, and as such are either "pre-mixed" into an edition package or provided as an extension package.
+
+When provided by themselves, they make most sense provided as an extension package so they can be "bolted onto" a number of different compatible editions. Therefore the *preferred packaging of a derivative is an extension package*.
+
+Note that this preference does not preclude prepackaging one or more derivatives in edition packages where useful.
+
 ### Naming conventions
 To aid human readability and distinguishing between packages, the following naming conventions should be applied.
 1. Edition packages
