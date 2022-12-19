@@ -33,30 +33,20 @@ Within a `sct:packageDependency` element
 - **sct:editionDependency** states any necessary edition dependency and version using the SNOMED CT URI standard, e.g. `http://snomed.info/sct/900000000000207008/version/20220731`. Where a package is transitively dependent on multiple editions, only the direct non-transitive dependencies should be stated. Downloading packages would complete when there are no further dependencies.
 - **sct:derivativeDependency** states any necessary derivative dependency, as they are often published outside of SNOMED CT editions. Similarly, this should also follow the SNOMED CT URI standard for module and version
 
-### Snapshot Release Type for extension packages
-Extensions, as opposed to derivatives, add/modify core components - concepts, descriptions and axioms/relationships. These changes affect the Snapshot state of components, as well as potenitally affecting classification and Necessary Normal Form calculation (for example non-leaf concept addition).
+### Edition/Extension/Derivative feeds
+While all types of entries can be put into one feed, it is also possible to host these entries in separate feeds. For examples
+- an editions feed - edition packages of available SNOMED CT Editions/Extensions
+- an extensions feed - extension packages of available SNOMED CT Extensions
+- a derivatives feed - extension packages of available SNOMED CT Derivatives
 
-An Extension (adding/modifying core components) published as an extension package should only be a Delta or a Full [RF2 Release Type](https://confluence.ihtsdotools.org/display/DOCRELFMT/3.2+Release+Types). Such a package can be applied to a referenced base edition, and then a Snapshot calculated using the [Module Dependency Reference Set](https://confluence.ihtsdotools.org/display/DOCRELFMT/5.2.4.2+Module+Dependency+Reference+Set). Because an Extension affects the Snapshot state in this way, potentially requiring reclassification and Necessary Normal Form recalculation, a Snapshot extension package of an Extension cannot be simply appended to a base edition's Snapshot. For this reason, the Snapshot Release Type for extension packages of SNOMED CT Extensions should not be used.
+Given that most implementers prefer a ready to use package to parts and assembly instructions, most implementers will be interested in edition packages rather than extension packages.
 
-In the simpler Derivative case (map, refset, even language translation with additional descriptions) a Snapshot extension package being simply appended to a Snapshot base edition is safe and simple because the derivative simply adds new components and does not affect the state of existing components.
+Providing a feed containing only edition packages without extension packages would be the least confusing entry point for most implementers with the least learning and decision making required.
 
-The Snapshot Release Type for an edition package does not have these issues as the base edition content is included in the resolved Snapshot Release Type of the package.
+Additional feeds for extension packages and derivatives would be useful for other implementations and are still worth providing.
 
-### Naming conventions
-To aid human readability and distinguishing between packages, the following naming conventions should be applied.
-1. Edition packages
-     1. Should contain the word edition
-     2. Should NOT contain the word extension
-2. Extension packages
-     1. Should contain the word extension
-     2. Should NOT contain the word edition
-3. The version of the package should be included in the title
-4. The [RF2 Release Type](https://confluence.ihtsdotools.org/display/DOCRELFMT/3.2+Release+Types) Full/Delta/Snapshot should be included as a bracketed suffix to the title
-
-For example, titles following these conventions are
-- SNOMED CT-International Edition 2022-07-31 (RF2 SNAPSHOT)
-- SNOMED CT-International Spanish Extension 2022-10-31 (RF2 FULL)
-
+A complete feed that is the union of these three feeds can also be potentially provided.
+  
 ### Packaging types for extensions and derivatives
 The major distinction between extensions and derivatives is that extensions add/modify core components, where derivatives are limited to reference sets providing non-core "bolt on" content.
 
@@ -75,6 +65,15 @@ Derivatives are designed to bolt on to an edition, and as such are either "pre-m
 When provided by themselves, they make most sense provided as an extension package so they can be "bolted onto" a number of different compatible editions. Therefore the *preferred packaging of a derivative is an extension package*.
 
 Note that this preference does not preclude prepackaging one or more derivatives in edition packages where useful.
+  
+### Snapshot Release Type for extension packages
+Extensions, as opposed to derivatives, add/modify core components - concepts, descriptions and axioms/relationships. These changes affect the Snapshot state of components, as well as potenitally affecting classification and Necessary Normal Form calculation (for example non-leaf concept addition).
+
+An Extension (adding/modifying core components) published as an extension package should only be a Delta or a Full [RF2 Release Type](https://confluence.ihtsdotools.org/display/DOCRELFMT/3.2+Release+Types). Such a package can be applied to a referenced base edition, and then a Snapshot calculated using the [Module Dependency Reference Set](https://confluence.ihtsdotools.org/display/DOCRELFMT/5.2.4.2+Module+Dependency+Reference+Set). Because an Extension affects the Snapshot state in this way, potentially requiring reclassification and Necessary Normal Form recalculation, a Snapshot extension package of an Extension cannot be simply appended to a base edition's Snapshot. For this reason, the Snapshot Release Type for extension packages of SNOMED CT Extensions should not be used.
+
+In the simpler Derivative case (map, refset, even language translation with additional descriptions) a Snapshot extension package being simply appended to a Snapshot base edition is safe and simple because the derivative simply adds new components and does not affect the state of existing components.
+
+The Snapshot Release Type for an edition package does not have these issues as the base edition content is included in the resolved Snapshot Release Type of the package.
 
 ### Naming conventions
 To aid human readability and distinguishing between packages, the following naming conventions should be applied.
