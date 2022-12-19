@@ -75,6 +75,20 @@ Derivatives are designed to bolt on to an edition, and as such are either "pre-m
 When provided by themselves, they make most sense provided as an extension package so they can be "bolted onto" a number of different compatible editions. Therefore the *preferred packaging of a derivative is an extension package*.
 
 Note that this preference does not preclude prepackaging one or more derivatives in edition packages where useful.
+### Naming conventions
+To aid human readability and distinguishing between packages, the following naming conventions should be applied.
+1. Edition packages
+     1. Should contain the word edition
+     2. Should NOT contain the word extension
+2. Extension packages
+     1. Should contain the word extension
+     2. Should NOT contain the word edition
+3. The version of the package should be included in the title
+4. The [RF2 Release Type](https://confluence.ihtsdotools.org/display/DOCRELFMT/3.2+Release+Types) Full/Delta/Snapshot should be included as a bracketed suffix to the title
+
+For example, titles following these conventions are
+- SNOMED CT-International Edition 2022-07-31 (RF2 SNAPSHOT)
+- SNOMED CT-International Spanish Extension 2022-10-31 (RF2 FULL)
 
 ## Authentication
 The standard does not mandate any authentication and this is left to the implementer of the Atom feed provider to implement whatever is needed depending on any terminology product license requirements.
