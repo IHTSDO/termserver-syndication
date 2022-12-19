@@ -105,6 +105,25 @@ For example, titles following these conventions are
 - SNOMED CT-International Edition 2022-07-31 (RF2 SNAPSHOT)
 - SNOMED CT-International Spanish Extension 2022-10-31 (RF2 FULL)
 
+### Packaging types for extensions and derivatives
+The major distinction between extensions and derivatives is that extensions add/modify core components, where derivatives are limited to reference sets providing non-core "bolt on" content.
+
+#### Extensions
+For editions, most implementers want a ready to use package rather than parts and assembly instructions. Assembling an edition from an extension package and a base edition is not a trivial exercise, requiring content to be combined and a snapshot calculated based on the [Module Dependency Reference Set](https://confluence.ihtsdotools.org/display/DOCRELFMT/5.2.4.2+Module+Dependency+Reference+Set).
+
+For this reason *edition packaging is preferred as the primary distribution method extensions*. Extensions may also be provided in extension packaging, however if only one is made availabe edition packaging is preferred.
+
+The rationale for this recommendation is that 
+- implementers desiring an extension package are in the minority and more capable of disassembiling an edition package if necessary
+- the majority of implementers would prefer a ready to use edition package, and the task of assembling that from an extension and base edition package and calculating a snapshot based on the [Module Dependency Reference Set](https://confluence.ihtsdotools.org/display/DOCRELFMT/5.2.4.2+Module+Dependency+Reference+Set) is burdensome.
+
+#### Derivatives
+Derivatives are designed to bolt on to an edition, and as such are either "pre-mixed" into an edition package or provided as an extension package.
+
+When provided by themselves, they make most sense provided as an extension package so they can be "bolted onto" a number of different compatible editions. Therefore the *preferred packaging of a derivative is an extension package*.
+
+Note that this preference does not preclude prepackaging one or more derivatives in edition packages where useful.
+
 ## Authentication
 The standard does not mandate any authentication and this is left to the implementer of the Atom feed provider to implement whatever is needed depending on any terminology product license requirements.
 
