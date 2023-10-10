@@ -1,44 +1,48 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:ncts="http://ns.electronichealth.net.au/ncts/syndication/asf/extensions/1.0.0" xmlns:sct="http://snomed.info/syndication/sct-extension/1.0.0">
-    <title>SNOMED International Terminology Service Syndication Feed</title>
+    <title>SNOMED International MLDS Terminology Release Syndication Feed</title>
     <link rel="alternate" type="application/atom+xml" href="https://api.snomed.org/syndication/v1/syndication.xml" />
-    <id>urn:uuid:34fabee6-f2b1-44e4-9164-7ae0efc7d6ad</id>
+    <id>urn:uuid:5c26c3ca-c21c-476e-b0a4-096679529f2e</id>
     <generator>SNOMED International</generator>
-    <updated>2022-10-01T00:01:00</updated>
+    <updated>2023-10-10T00:01:00</updated>
     <ncts:atomSyndicationFormatProfile>http://ns.electronichealth.net.au/ncts/syndication/asf/profile/1.0.0</ncts:atomSyndicationFormatProfile>
     <!--
         Entry example for the SNOMED CT-International Edition - edition snapshot package.
         Features to note are
             * no sct:packageDependency element because it is an edition package which contains all its dependencies
-            * this is a snapshot package (as opposed to delta or full) and has the category SCT_RF2_SNAPSHOT
+            * this is a full package (as opposed to a snapshot package) and has the category SCT_RF2_FULL
+            * the "alternate" link is the primary RF2 file for download in this version and there can be only one of these per feed entry
+            * the "related" link is a secondary file, in this case the Release Notes PDF, and there can be many of these in each feed entry
+            * the files in this entry use the MD5 hash function "sct:md5Hash" to check the validity of each file
     -->
     <entry>
-        <title>SNOMED CT-International Edition 2022-07-31 (RF2 SNAPSHOT)</title>
-        <link rel="alternate" type="application/zip" href="https://mlds.ihtsdotools.org/api/releasePackages/167/releaseVersions/849892/releaseFiles/849900/download" length="266118090" ncts:sha256Hash="902ec61f6ada329bfd6bc487fe7adab0" />
-        <category term="SCT_RF2_SNAPSHOT" label="SNOMED CT RF2 Snapshot" scheme="http://ns.electronichealth.net.au/ncts/syndication/asf/scheme/1.0.0" />
+        <title>SNOMED CT International Edition-April 2023 v1.0 (RF2 FULL PACKAGE)</title>
+        <link rel="alternate" type="application/zip" href="https://mlds.ihtsdotools.org/api/releasePackages/167/releaseVersions/966543/releaseFiles/966545/download" length="533422481" sct:md5Hash="0290ad7f6e431063166afd91cd2b8c37"/>
+        <link rel="related" type="application/pdf" href="https://mlds.ihtsdotools.org/api/releasePackages/167/releaseVersions/966543/releaseFiles/966825/download" length="80605" sct:md5Hash="505ca7d8bca26770e1e310c0a49a65f3"/>
+        <category term="SCT_RF2_FULL" label="SNOMED CT RF2 Full" scheme="http://ns.electronichealth.net.au/ncts/syndication/asf/scheme/1.0.0" />
         <author>
-            <name>SNOMED International</name>
-            <uri>http://www.snomed.org</uri>
-            <email>info@snomed.org</email>
+          <name>SNOMED International</name>
+          <uri>https://www.snomed.org</uri>
+          <email>info@snomed.org</email>
         </author>
-        <id>urn:uuid:45b68519-aed8-4991-bc3d-c160dbc45497</id>
-        <rights>Copyright International Health Terminology Standards Development Organisation 2002-2022.  All rights reserved.  SNOMED CT® was originally created by the College of American Pathologists.  "SNOMED" and "SNOMED CT" are registered trademarks of International Health Terminology Standards Development Organisation, trading as SNOMED International.</rights>
-        <updated>2022-08-01T06:00:00Z</updated>
-        <published>2022-08-04T06:00:00Z</published>
-        <summary>some narrative about the version</summary>
-        <ncts:contentItemIdentifier>http://snomed.info/sct/900000000000207008</ncts:contentItemIdentifier>
-        <ncts:contentItemVersion>http://snomed.info/sct/900000000000207008/version/20220731</ncts:contentItemVersion>
-    </entry>
+        <id>urn:uuid:3cca1feb-16f8-4c34-b5e4-692e70ae30ca</id>
+        <updated>2023-09-20T14:02:22Z</updated>
+        <published>2023-04-28T00:00:00Z</published>
+        <summary>SNOMED International April 2023 SNOMED CT International Edition release package</summary>
+        <rights>© International Health Terminology Standards Development Organisation 2002-2023.  All rights reserved.  SNOMED CT® was originally created by the College of American Pathologists.  "SNOMED" and "SNOMED CT" are registered trademarks of International Health Terminology Standards Development Organisation, trading as SNOMED International.</rights>
+        <ncts:contentItemIdentifier xmlns:ncts="http://ns.electronichealth.net.au/ncts/syndication/asf/extensions/1.0.0">http://snomed.info/sct/900000000000207008</ncts:contentItemIdentifier>
+        <ncts:contentItemVersion xmlns:ncts="http://ns.electronichealth.net.au/ncts/syndication/asf/extensions/1.0.0">http://snomed.info/sct/900000000000207008/version/20230430</ncts:contentItemVersion>
+      </entry>
     <!--
         Entry example for the SNOMED CT-International Spanish Edition - extension snapshot package.
         Features to note are
             * sct:packageDependency element because this is an extension package which depends on content from other packages it does not contain
             * sct:editionDependency element stating a dependency on the July 2022 International Edition
             * sct:derivativeDependency element stating a dependency on the January 2022 Medical Dictionary for Regulatory Activities simple map module
-            * this is a snapshot package (as opposed to delta or full) and has the category SCT_RF2_SNAPSHOT
+            * this is a snapshot package (as opposed to a full package) and has the category SCT_RF2_SNAPSHOT
     -->
     <entry>
         <title>SNOMED CT-International Spanish Extension 2022-10-31 (RF2 SNAPSHOT)</title>
-        <link rel="alternate" type="application/zip" href="https://mlds.ihtsdotools.org/api/releasePackages/167/releaseVersions/849892/releaseFiles/849900/download" length="266118090" ncts:sha256Hash="902ec61f6ada329bfd6bc487fe7adab0" />
+        <link rel="alternate" type="application/zip" href="https://mlds.ihtsdotools.org/api/releasePackages/167/releaseVersions/849892/releaseFiles/849900/download" length="266118090" sct:md5Hash="a8fc30a504960ce9e5adc956368f49ce" />
         <category term="SCT_RF2_SNAPSHOT" label="SNOMED CT RF2 Snapshot" scheme="http://ns.electronichealth.net.au/ncts/syndication/asf/scheme/1.0.0" />
         <author>
             <name>SNOMED International</name>
@@ -61,7 +65,8 @@
         Entry example of a national extension, the SNOMED CT Australian Edition - edition full package.
         Features to note are
             * no sct:packageDependency element because it is an edition package which contains all its dependencies
-            * this is a full package (as opposed to delta or snapshot) and has the category SCT_RF2_FULL
+            * this is a full package (as opposed to a snapshot package) and has the category SCT_RF2_FULL
+            * the files in this entry use the SHA256 hash function "ncts:sha256Hash" to check the validity of each file
     -->
     <entry>
         <title>SNOMED CT-AU 30 November 2022 (RF2 FULL)</title>
