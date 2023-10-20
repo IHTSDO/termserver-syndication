@@ -111,7 +111,7 @@ Each link will have the following attributes:
 
 - `type` - the type of file being downloaded, e.g. `type="application/zip"` or `type="application/pdf"`
 - `href` - the URL link to download the file
-- `length` - the size of the file in octects, e.g. `length="533422481"`
+- `length` - the size of the file in bytes, e.g. `length="533422481"`
 - Checksum validity. **either** of the two following values can be used (chosen by the distributor):
   - `sct:md5Hash` the MD5 hash function producing a 128-bit hash value used to check the validity of the file, e.g. `sct:md5Hash="0290ad7f6e431063166afd91cd2b8c37"`
   - `ncts:sha256Hash` the SHA256 hash function producing a 256-bit hash value used to check the validity of the file, e.g. `sha256Hash="902ec61f6ada329bfd6bc487fe7adab0"`
