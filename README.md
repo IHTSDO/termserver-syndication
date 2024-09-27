@@ -10,7 +10,10 @@ The additions here are from SNOMED International and are in the sct namespace, `
 
 ### SNOMED CT Specific extensions
 
-Example feed can be seen in this repo - [feed-example.xml](feed-example.xml)
+A live feed is now available from SNOMED International - [Members Distribution and Licensing Service](https://mlds.ihtsdotools.org/api/feed)
+
+Example feed can be seen in this repo - [feed-example.xml](feed-example.xml).
+
 
 The extensions to the specification are as follows:
 
@@ -115,6 +118,20 @@ Each link will have the following attributes:
 - Checksum validity. **either** of the two following values can be used (chosen by the distributor):
   - `sct:md5Hash` the MD5 hash function producing a 128-bit hash value used to check the validity of the file, e.g. `sct:md5Hash="0290ad7f6e431063166afd91cd2b8c37"`
   - `ncts:sha256Hash` the SHA256 hash function producing a 256-bit hash value used to check the validity of the file, e.g. `sha256Hash="902ec61f6ada329bfd6bc487fe7adab0"`
+ 
+### RF2 Package Types
+
+In each feed entry, the **category** will indicate the type of RF2 package. The expected types are as follows:
+
+- **SCT_RF2_ALL**: Containing the Snapshot and Full RF2 release files (and potentially the Dela Rf2 files but this is not mandatory)
+- **SCT_RF2_FULL**: Containing only Full RF2 release files
+- **SCT_RF2_SNAPSHOT**: Containing only Snapshot RF2 release files
+- **SCT_RF2_DELTA**: Containing only Delta RF2 release files
+
+Most available RF2 packages will contain all the necessary release files and will, therefore, have a feed entry item as follows:
+```
+<category term="SCT_RF2_ALL" label="SNOMED CT RF2 All" scheme="http://ns.electronichealth.net.au/ncts/syndication/asf/scheme/1.0.0" />
+```
 
 ## Authentication
 
