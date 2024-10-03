@@ -1,0 +1,20 @@
+repo_name: IHTSDO/termserver-syndication
+report_id: 7d9ca1e7fede3439a5fd673cd9aa75a8
+version: 0.1
+repo_type: Public
+timestamp: '2024-03-21T12:57:19+00:00'
+requested_by: rorydavidson
+provider: github
+branch: main
+detected_tools_count: 1
+tools:
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/IHTSDO/termserver-syndication
+  detection_source: Repo Metadata
